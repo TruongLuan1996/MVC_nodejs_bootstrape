@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  
+   <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+    .container-fluid{
+      margin-left: 0px;
+    }
+    .jumbotron.text-center{
+      margin-bottom: 20px;
+    }
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Đấu Giá Trực Tuyến</h1>      
+    <p>Mission, Vission & Values</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Cá nhân</a></li>
+        <li><a href="#">Top Uy Tín</a></li>
+        <li><a href="#">Hướng dẫn</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--Seach BOX -->
+<div class="jumbotron text-center">
+      <form class="form-inline">
+        <div class="input-group">
+          <input class="form-control" size="50" placeholder="Gõ tên sản phẩm muốn tìm" required>
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-danger">Tìm kiếm</button>
+          </div>
+        </div>
+      </form>
+</div>
+<!--End Seach BOX -->
+
+
+<!--Main display products-->
+<div class="col-sm-12" style="background: white;">
+  <div class="row">
+   <!--Category -->
+    <div class="col-sm-3 container-fluid">
+      <!--row categry-->
+         <div class="list-group">
+            <p class="list-group-item disabled"><strong>Category</strong></p>
+
+            <a data-toggle="collapse" href="#" class="list-group-item active">Tất cả</a>
+            <a data-toggle="collapse" href="#collapsecategory1" class="list-group-item">Công Nghệ</a>
+            <div class="col-sm-offset-1">
+              <div id="collapsecategory1" class="panel-collapse collapse">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">Điện thoại</a>
+                  <a href="#" class="list-group-item">Máy Tính</a>
+                  <a href="#" class="list-group-item">Khác</a>
+                </div>
+              </div>
+            </div>
+
+            <a data-toggle="collapse" href="#collapsecategory2" class="list-group-item">Thời Trang</a>
+            <div class="col-sm-offset-1">
+              <div id="collapsecategory2" class="panel-collapse collapse">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">Mũ</a>
+                  <a href="#" class="list-group-item">Áo</a>
+                  <a href="#" class="list-group-item">Quần</a>
+                  <a href="#" class="list-group-item">Khác</a>
+                </div>
+              </div>
+            </div>
+
+            <a data-toggle="collapse" href="#collapsecategory3" class="list-group-item">Gia Dụng</a>
+            <div class="col-sm-offset-1">
+              <div id="collapsecategory3" class="panel-collapse collapse">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">Ghế</a>
+                  <a href="#" class="list-group-item">Chén, bác</a>
+                  <a href="#" class="list-group-item">Máy quạt</a>
+                  <a href="#" class="list-group-item">Khác</a>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="list-group-item">Category 4</a>
+            <a href="#" class="list-group-item">Category 5</a>
+            <a href="#" class="list-group-item">Category 6</a>
+         </div>
+      <!--end category -->
+      <!--row filter cost-->
+         <div class="list-group">
+              <p class="list-group-item disabled"><strong>Lọc theo giá</strong></p>
+              <a href="#" class="list-group-item active">Tất cả</a>
+              <a href="#" class="list-group-item">10.000 - 100.000</a>
+              <a href="#" class="list-group-item">100K - 1 tr</a>
+              <a href="#" class="list-group-item">1tr - 10tr</a>
+              <a href="#" class="list-group-item">Trên 10 tr</a>
+         </div>
+      <!--end filter cost --> 
+    </div>
+     
+    <!--End category -->
+
+    <!--Main products -->
+    <div class="col-sm-9">
+        
+      <div class="row">  
+          <!--header-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="btn-group btn-group-justified">
+                 <div class="btn-group"><button type="button" class="btn btn-primary">Đang đấu giá (6)</button></div>  
+                 <div class="btn-group"><button type="button" class="btn btn-primary">Mới kết thúc (6)</button></div>
+                 <div class="btn-group"> <button type="button" class="btn btn-primary">Top Winner</button></div>
+                 <div class="btn-group"><button type="button" class="btn btn-primary">Top Người Bán</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="#"><span style="color:white"><strong>Mũ bảo hiểm XYZ</strong></span></a></div>
+              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div>Giá đấu hiện tại : 40,000 </div>
+                      <div>Giá mua ngay : 50,000 </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div>Lượt Bid : 3</div>
+                      <div>Thời gian còn lại: 12:01:09</div>
+                    </div>
+                </div>  
+              </div>
+              <div class="panel-footer text-center">
+                <button type="button" class="btn btn-danger btn-lg">&nbsp;BID&nbsp;</button> 
+                <button type="button" class="btn btn-danger btn-lg">&nbsp;Thêm vào Giỏ hàng&nbsp;</button> 
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4"> 
+             <div class="panel panel-primary">
+                <div class="panel-heading"><a href="#"><span style="color:white"><strong>Áo phông caro</strong></span></a></div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div>Giá đấu hiện tại : 40,000 </div>
+                        <div>Giá mua ngay : 50,000 </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div>Lượt Bid : 3</div>
+                        <div>Thời gian còn lại: 12:01:09</div>
+                      </div>
+                  </div>  
+                </div>
+                <div class="panel-footer text-center">
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;BID&nbsp;</button> 
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;Thêm vào Giỏ hàng&nbsp;</button> 
+                </div>
+             </div>
+          </div>
+
+          <div class="col-sm-4"> 
+             <div class="panel panel-primary">
+                <div class="panel-heading"><a href="#"><span style="color:white"><strong>Mũ bảo hiểm XYZ</strong></span></a></div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div>Giá đấu hiện tại : 40,000 </div>
+                        <div>Giá mua ngay : 50,000 </div>
+                        
+                      </div>
+                      <div class="col-sm-6">
+                        <div>Lượt Bid : 3</div>
+                        <div>Thời gian còn lại: 12:01:09</div>
+                      </div>
+                  </div>  
+                </div>
+                <div class="panel-footer text-center">
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;BID&nbsp;</button> 
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;Thêm vào Giỏ hàng&nbsp;</button> 
+                </div>
+             </div>
+          </div><br>
+        </div>
+
+         
+       <div class="row">
+          <div class="col-sm-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="#"><span style="color:white"><strong>Mũ bảo hiểm XYZ</strong></span></a></div>
+              <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div>Giá đấu hiện tại : 40,000 </div>
+                      <div>Giá mua ngay : 50,000 </div>
+                      
+                    </div>
+                    <div class="col-sm-6">
+                      <div>Lượt Bid : 3</div>
+                      <div>Thời gian còn lại: 12:01:09</div>
+                    </div>
+                </div>  
+              </div>
+              <div class="panel-footer text-center">
+                <button type="button" class="btn btn-danger btn-lg">&nbsp;BID&nbsp;</button> 
+                <button type="button" class="btn btn-danger btn-lg">&nbsp;Thêm vào Giỏ hàng&nbsp;</button> 
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4"> 
+             <div class="panel panel-primary">
+                <div class="panel-heading"><a href="#"><span style="color:white"><strong>Áo phông caro</strong></span></a></div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div>Giá đấu hiện tại : 40,000 </div>
+                        <div>Giá mua ngay : 50,000 </div>
+                        
+                      </div>
+                      <div class="col-sm-6">
+                        <div>Lượt Bid : 3</div>
+                        <div>Thời gian còn lại: 12:01:09</div>
+                      </div>
+                  </div>  
+                </div>
+                <div class="panel-footer text-center">
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;BID&nbsp;</button> 
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;Thêm vào Giỏ hàng&nbsp;</button> 
+                </div>
+             </div>
+          </div>
+
+          <div class="col-sm-4"> 
+             <div class="panel panel-primary">
+                <div class="panel-heading"><a href="#"><span style="color:white"><strong>Mũ bảo hiểm XYZ</strong></span></a></div>
+                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div>Giá đấu hiện tại : 40,000 </div>
+                        <div>Giá mua ngay : 50,000 </div>
+                        
+                      </div>
+                      <div class="col-sm-6">
+                        <div>Lượt Bid : 3</div>
+                        <div>Thời gian còn lại: 12:01:09</div>
+                      </div>
+                  </div>  
+                </div>
+                <div class="panel-footer text-center">
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;BID&nbsp;</button> 
+                  <button type="button" class="btn btn-danger btn-lg">&nbsp;Thêm vào Giỏ hàng&nbsp;</button> 
+                </div>
+             </div>
+          </div><br>
+       </div> <br><br>
+     
+      
+      </div>
+
+    </div>
+    <!--End Main product -->
+  </div>
+</div>
+<!--End Main display products-->
+
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright</p>  
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger">Sign Up</button>
+  </form>
+</footer>
+
+</body>
+</html>
