@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="css/fileinput.min.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/fileinput.js" type="text/javascript"></script>
+    <script src="js/fileinput.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 
@@ -157,22 +157,22 @@
 				 <div class="col-md-5">
 				<form name="frm">
 				    <label class="control-label">Nhập Tên Sản Phẩm</label>	
-					<input type="text" class="form-control" id="1" name="txt1" >
+					<input type="text" class="form-control" id="ten" name="txtTen" >
 					<label class="control-label">Nhập Giá Khởi Điểm</label>	
-					<input type="text" class="form-control" id="2" name="txt2" >
+					<input type="text" class="form-control" id="giakhoidiem" name="txtGiaKD" >
 					<label class="control-label">Nhập Giá Mua Ngay</label>	
-					<input type="text" class="form-control" id="3" name="txt3" >
+					<input type="text" class="form-control" id="giamuangay" name="txtGiaMN" >
 					<label class="control-label">Nhập Mô Tả</label>	
-					<input type="text" class="form-control" id="4" name="txt4" >
+					<input type="text" class="form-control" id="mota" name="txtMoTa" >
 					<label class="control-label">Chọn Hình Ảnh Cho Sản Phẩm</label>	
 					<input id="inputurl" type="file" accept="image/*" class="file-loading">
-					
-					<br>
-					<button type="button" class="btn btn-success" id="btnUpload">Hoàn Tất</button>
+          <br>
+					<label class="control-label">Click Xem Trước nếu muốn xem lại sản phẩm</label> 
+					<button type="button" class="btn btn-success" id="btnUpload">Xem Trước</button>
 				</form>
 		        
 		 </div>
-		  <div id="123">
+		  <div id="xemtruoc">
               	
             </div>
 			</div>
@@ -180,18 +180,6 @@
 	</div>
 </div>
 </div>
-
-<!--End Seach BOX -->
-
-
-<!--Main display products-->
-
-    <!--Main products -->
-
-<!--End Main display products-->
-
-
-
 			<script>
 			$(document).on('ready', function() {
 			    $("#inputurl").fileinput({
@@ -215,17 +203,47 @@
 				var date=d.toDateString();
 				date=date.slice(4);
 				var url=frm.inputurl.files[0].name;
-			
-				var ten=frm.txt1.value;
-				var giamuangay=frm.txt2.value;
-				var giakhoidiem=frm.txt3.value;
-				var mota=frm.txt4.value;
-				//if(url!=''&&ten!=''&&giamuangay!='')
+				var ten=frm.txtTen.value;
+				var giamuangay=frm.txtGiaMN.value;
+				var giakhoidiem=frm.txtGiaKD.value;
+				var mota=frm.txtMoTa.value;
+				if(ten!=''&&giamuangay!=''&&giakhoidiem!=''&&mota!='')
 				{
-				var html='<div class="col-sm-4"> <div class="panel panel-primary" ><div class="panel-heading"><a href="#"><span style="color:white"><strong>'+ten+'</strong></span></a></div><div class="panel-body"><img src="'+url+'" class="img-responsive" style="width:500px;height:450px" alt="Image"><div class="row"><div class="col-sm-6"><div class="info">Giá khởi điểm : '+giakhoidiem+' </div><div class="info">Ngày đăng: '+date+'</div> </div> <div class="col-sm-6">  <div class="info">Giá mua ngay:'+giamuangay+' </div> <div class="info">Thời gian còn lại: 12:01:09</div> </div> </div></div> <div class="panel-footer text-center"></div>'
-				+'<div class="mota" > Mô tả: '+mota+'</div>';
-				$('#123').html(html);
-			}
+             if(isNaN(giakhoidiem)==false&&isNaN(giamuangay)==false)
+            {
+                if(giakhoidiem < giamuangay)
+                {
+                  var html='<div class="col-sm-4">'
+                  + '<div class="panel panel-primary" >'
+                      + '<div class="panel-heading">'
+                           + '<a href="#"><span style="color:white"><strong>'+ten+'</strong></span></a>'
+                      + '</div>'
+                      + '<div class="panel-body">'
+                           + '<img src="'+url+'" class="img-responsive" style="width:500px;height:450px" alt="Image">'
+                           + '<div class="row">'
+                                + '<div class="col-sm-6">'
+                                      + '<div class="info">Giá khởi điểm : '+giakhoidiem+' </div>'
+                                      + '<div class="info">Ngày đăng: '+date+'</div>' 
+                                + '</div>'
+                                + '<div class="col-sm-6">'
+                                      + '<div class="info">Giá mua ngay:'+giamuangay+' </div>'
+                                      + '<div class="info">Thời gian còn lại: 12:01:09</div> </div></div>'
+                                + '</div>' 
+                      + '<div class="panel-footer text-center"></div>'
+                      + '<div class="mota" > Mô tả: '+mota+'</div>';
+                    
+                  $('#xemtruoc').html(html);
+                }
+                else
+                  alert('Giá khởi điểm phải nhỏ hơn giá mua ngay');
+
+            }
+				    else
+              alert('Giá khởi điểm và giá mua ngay phải là số');
+
+			   }
+         else
+              alert('Bạn chưa nhập đầy đủ thông tin');
 			})
 			</script>
 
