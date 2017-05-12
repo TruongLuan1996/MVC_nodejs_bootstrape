@@ -26,7 +26,6 @@
     	font-weight: bold;
 	 	font-family: arial;
 	 	font-style: italic;
-        padding-left: 20px;
 	}
     .navbar {
       margin-bottom: 50px;
@@ -90,7 +89,7 @@
 		<div class="col-sm-12" style="background: white;">
   <div class="row">
    <!--Category -->
-    <div class="col-sm-3 container-fluid">
+    <div class="col-sm-2 container-fluid">
       <!--row categry-->
          <div class="list-group">
             <p class="list-group-item disabled"><strong>Category</strong></p>
@@ -156,16 +155,39 @@
 			<div class="panel-body">
 				 <div class="col-md-5">
 				<form name="frm">
-				    <label class="control-label">Nhập Tên Sản Phẩm</label>	
-					<input type="text" class="form-control" id="ten" name="txtTen" >
-					<label class="control-label">Nhập Giá Khởi Điểm</label>	
-					<input type="text" class="form-control" id="giakhoidiem" name="txtGiaKD" >
-					<label class="control-label">Nhập Giá Mua Ngay</label>	
-					<input type="text" class="form-control" id="giamuangay" name="txtGiaMN" >
+        <div class="row">
+            <div class="col-md-6"> 
+                  <label class="control-label">Nhập Tên Sản Phẩm</label>  
+                  <input type="text" class="form-control" id="ten" name="txtTen" >
+            </div>
+            <div class="col-md-6">
+                  <label class="control-label">Nhập Loại Sản Phẩm</label> 
+                  <input type="text" class="form-control" id="loaisp" name="txtLoaiSP" >
+            </div>
+            <div class="col-md-6">
+                  <label class="control-label">Nhập Số Điện Thoại</label> 
+                  <input type="text" class="form-control" id="sdt" name="txtSDT" >
+            </div>    
+            <div class="col-md-6">
+                  <label class="control-label">Nhập Email</label> 
+                  <input type="text" class="form-control" id="email" name="txtEmail" >
+            </div>
+            <div class="col-md-6">
+                  <label class="control-label">Nhập Giá Khởi Điểm</label> 
+                  <input type="text" class="form-control" id="giakhoidiem" name="txtGiaKD" >
+            </div> 
+            <div class="col-md-6">
+                  <label class="control-label">Nhập Giá Mua Ngay</label>  
+                  <input type="text" class="form-control" id="giamuangay" name="txtGiaMN" >
+            </div>
+            
+        </div>
+				  
+					
 					<label class="control-label">Nhập Mô Tả</label>	
 					<input type="text" class="form-control" id="mota" name="txtMoTa" >
 					<label class="control-label">Chọn Hình Ảnh Cho Sản Phẩm</label>	
-					<input id="inputurl" type="file" accept="image/*" class="file-loading">
+          <input id="inputurl" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
           <br>
 					<label class="control-label">Click Xem Trước nếu muốn xem lại sản phẩm</label> 
 					<button type="button" class="btn btn-success" id="btnUpload">Xem Trước</button>
@@ -181,7 +203,7 @@
 </div>
 </div>
 			<script>
-			$(document).on('ready', function() {
+			/*$(document).on('ready', function() {
 			    $("#inputurl").fileinput({
 			        previewFileType: "image",
 			        browseClass: "btn btn-success",
@@ -199,51 +221,85 @@
 			<script>
 			$('#btnUpload').on('click',function()
 			{
+        var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
 				var d = new Date();
 				var date=d.toDateString();
 				date=date.slice(4);
 				var url=frm.inputurl.files[0].name;
 				var ten=frm.txtTen.value;
+        var loai=frm.txtLoaiSP.value;
+        var sdt=frm.txtSDT.value;
+        var email=frm.txtEmail.value;
 				var giamuangay=frm.txtGiaMN.value;
 				var giakhoidiem=frm.txtGiaKD.value;
 				var mota=frm.txtMoTa.value;
-				if(ten!=''&&giamuangay!=''&&giakhoidiem!=''&&mota!='')
+
+           
+
+			if(ten!=''&&giamuangay!=''&&giakhoidiem!=''&&mota!=''&&sdt!=''&&email!=''&&loai!='')
 				{
-             if(isNaN(giakhoidiem)==false&&isNaN(giamuangay)==false)
-            {
-                if(giakhoidiem < giamuangay)
+            
+              if(isNaN(sdt)==false)
                 {
-                  var html='<div class="col-sm-4">'
-                  + '<div class="panel panel-primary" >'
-                      + '<div class="panel-heading">'
-                           + '<a href="#"><span style="color:white"><strong>'+ten+'</strong></span></a>'
-                      + '</div>'
-                      + '<div class="panel-body">'
-                           + '<img src="'+url+'" class="img-responsive" style="width:500px;height:450px" alt="Image">'
-                           + '<div class="row">'
-                                + '<div class="col-sm-6">'
-                                      + '<div class="info">Giá khởi điểm : '+giakhoidiem+' </div>'
-                                      + '<div class="info">Ngày đăng: '+date+'</div>' 
-                                + '</div>'
-                                + '<div class="col-sm-6">'
-                                      + '<div class="info">Giá mua ngay:'+giamuangay+' </div>'
-                                      + '<div class="info">Thời gian còn lại: 12:01:09</div> </div></div>'
-                                + '</div>' 
-                      + '<div class="panel-footer text-center"></div>'
-                      + '<div class="mota" > Mô tả: '+mota+'</div>';
-                    
-                  $('#xemtruoc').html(html);
-                }
+                  if(sdt.length==10||sdt.length==11)
+                    {
+                          if(reg_mail.test(email)==true)
+                            {
+                               if(isNaN(giakhoidiem)==false&&isNaN(giamuangay)==false)
+                                 {
+                                     //if(giakhoidiem < giamuangay)
+                                      {
+                                        var html='<div class="col-sm-5">'
+                                                        + '<div class="panel panel-primary" >'
+                                                            + '<div class="panel-heading">'
+                                                                + '<div class="row">'
+                                                                    + '<div class="col-md-6">'
+                                                                          + '<a href="#"><span style="color:white"><strong>Tên: '+ten+'</strong></span></a>'
+                                                                    + '</div>'
+                                                                    + '<div class="col-md-6">'
+                                                                          + '<a href="#"><span style="color:white"><strong>Loại: '+loai+'</strong></span></a>'
+                                                                    + '</div>'
+                                                                + '</div>'
+                                                            + '</div>'
+                                                            + '<div class="panel-body">'
+                                                                 + '<img src="image//'+url+'" class="img-responsive" style="width:500px;height:450px" alt="Image">'
+                                                                 + '<div class="row">'
+                                                                      + '<div class="col-sm-6">'
+                                                                            + '<div class="info">SĐT: '+sdt+' </div>'
+                                                                            + '<div class="info">Giá khởi điểm: '+giakhoidiem+' </div>'
+                                                                            + '<div class="info">Ngày đăng: '+date+'</div>' 
+                                                                      + '</div>'
+                                                                      + '<div class="col-sm-6">'
+                                                                            + '<div class="info">Email: '+email+' </div>'
+                                                                            + '<div class="info">Giá mua ngay:'+giamuangay+' </div>'
+                                                                            + '<div class="info">Thời gian còn lại: 12:01:09</div>' 
+                                                                      + '</div>'
+
+                                                                  + '</div>'
+                                                            + '</div>' 
+                                                            + '<div class="panel-footer text-center"> <div class="mota" > Mô tả: '+mota+'</div> </div>'
+                                                  + '</div>';
+                                          
+                                        $('#xemtruoc').html(html);
+                                      }
+                                     // else
+                                     //   alert('Giá khởi điểm phải nhỏ hơn giá mua ngay');
+                                  }
+                                  else
+                                      alert('Giá khởi điểm và giá mua ngay phải là số');
+                            }
+                            else 
+                                 alert('Email chưa hợp lệ');
+                        }
+                        else
+                           alert('Số điện thoại phải có 10 hoặc 11 số');
+
+                  }
                 else
-                  alert('Giá khởi điểm phải nhỏ hơn giá mua ngay');
-
-            }
-				    else
-              alert('Giá khởi điểm và giá mua ngay phải là số');
-
+                   alert('Số điện thoại phải là số');
 			   }
          else
-              alert('Bạn chưa nhập đầy đủ thông tin');
+             alert('Bạn chưa nhập đầy đủ thông tin');
 			})
 			</script>
 
